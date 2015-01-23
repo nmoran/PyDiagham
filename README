@@ -1,0 +1,15 @@
+Build steps
+-------------
+
+Steps
+-----------
+1. Compile diagham with -fPIC flag by adding this to CFLAGS and CXXFLAGS on configure line. For example from build folder would be something like:
+../configure --enable-fqhe CFLAGS=-fPIC CXXFLAGS=-fPIC
+
+2. Generate c++ code from interface file using swig command.
+swig -c++ -python diagham.i
+
+3. Building python module in the current folder.
+python setup.py build_ext --inplace
+
+The result is an shared object file in the folder which is a python module and can be loaded from python using "import diagham" command.
